@@ -1,0 +1,42 @@
+version: '3.9'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    restart: always
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/www/:/etc/nginx/sites-enabled/:ro
+      - ./nginx/sites/:/var/www/:rw
+      - ./certbot/www:/var/www/certbot/:ro
+      - ./certbot/conf/:/etc/nginx/ssl/:ro
+    links:
+      - php
+      - proxy42
+
+  php:
+    image: 'php:8-fpm'
+    volumes:
+      - ./nginx/sites/:/var/www/:rw
+
+  certbot:
+    image: certbot/certbot:arm64v8-nightly
+    volumes:
+      - ./certbot/www/:/var/www/certbot/:rw
+      - ./certbot/conf/:/etc/letsencrypt/:rw
+
+  proxy42:
+    container_name: proxy42
+    build:
+      context: ./proxy42
+      dockerfile: Dockerfile
+    image: proxy42
+    restart: always
+
+networks:
+  nginx_network:
+    driver: bridge
