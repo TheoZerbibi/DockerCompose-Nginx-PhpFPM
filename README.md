@@ -10,7 +10,7 @@ and run :
 ## Run all containers
 Command for running all containers
 ```bash
-docker compose up nginx php proxy42 -d
+docker compose up nginx php proxy -d
 ```
 
 ## Stop the System
