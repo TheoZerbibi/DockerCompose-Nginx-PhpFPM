@@ -19,9 +19,9 @@ Stopping all the running containers is also simple with a single command:
 docker-compose down
 ```
 
-## Explications
+# Explications
 
-# . NGINX .
+## . NGINX .
 This container using latest version of nginx image.
 Port 80 (http) and 443 (SSL) are open by this container.
 
@@ -32,18 +32,18 @@ Port 80 (http) and 443 (SSL) are open by this container.
 
 This container is link to php and proxy container.
 
-# . PHP .
+## . PHP .
 This container using the 8 version of php-fpm
 
 - `./nginx/sites/` : Is the folder which contains site files. PHP need it for interpret the PHP files.
 
-# . CERTBOT .
+## . CERTBOT .
 This container using ARM image of certbot.
 Is using for generate SSL certificate for sites
 
 - `./certbot/www/` , `./certbot/conf/` : These folder are auto-generate by certbot.
 
-# . PROXY42
+## . PROXY42
 This container is a NodeJS Application.
 It launches the Dockerfile located in the proxy42 folder.
 
