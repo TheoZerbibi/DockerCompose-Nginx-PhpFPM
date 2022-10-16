@@ -1,7 +1,6 @@
-config/*
-certbot
-sites/*
-
+sites/
+certbot/
+config/
 yarn.lock
 .yarn
 
