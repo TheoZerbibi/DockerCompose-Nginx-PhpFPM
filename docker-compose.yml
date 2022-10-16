@@ -16,7 +16,7 @@ services:
       - ./certbot/conf/:/etc/nginx/ssl/:ro
     links:
       - php
-      - proxy42
+      - proxy
 
   php:
     image: 'php:8-fpm'
@@ -29,12 +29,12 @@ services:
       - ./certbot/www/:/var/www/certbot/:rw
       - ./certbot/conf/:/etc/letsencrypt/:rw
 
-  proxy42:
-    container_name: proxy42
+  proxy:
+    container_name: proxy
     build:
-      context: ./proxy42
+      context: ./proxy
       dockerfile: Dockerfile
-    image: proxy42
+    image: proxy
     restart: always
 
 networks:
