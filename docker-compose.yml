@@ -32,9 +32,9 @@ services:
   proxy:
     container_name: proxy
     build:
-      context: ./proxy
+      context: ./proxy42
       dockerfile: Dockerfile
-    image: proxy
+    image: proxy42
     restart: always
 
 networks:
