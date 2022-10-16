@@ -1,4 +1,4 @@
-# NGINX + Node App with Docker Compose
+# NGINX + PHP-FPM with Docker Compose
 
 ## Run certbot
 First we need to run certbot certification, modify hostname in `certbot.sh`
