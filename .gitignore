@@ -1,6 +1,6 @@
-sites/
+*tzeribi.fr/
+*tzeribi.fr
+config.json
 certbot/
-config/
 yarn.lock
 .yarn
-
